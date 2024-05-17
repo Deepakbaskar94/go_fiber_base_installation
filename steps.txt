@@ -1,0 +1,33 @@
+Install fiber
+	go get -u github.com/gofiber/fiber/v2
+
+
+package main
+
+import (
+    "github.com/gofiber/fiber/v2"
+)
+
+func main() {
+    // Create a new Fiber app
+    app := fiber.New()
+
+    // Define your API endpoint
+    app.Get("/api/hello", func(c *fiber.Ctx) error {
+        return c.SendString("Hello, World!")
+    })
+
+    // Start the Fiber app
+    err := app.Listen(":3000")
+    if err != nil {
+        panic(err)
+    }
+}
+
+
+go run main.go
+
+
+docker run -d   --name my-mongodb   -p 27017:27017   -e MONGO_INITDB_ROOT_USERNAME=deepak   -e MONGO_INITDB_ROOT_PASSWORD=deepak123   -v /home/deepak/Database:/data/db   mongo
+
+mongodb://deepak:deepak123@localhost:27017/admin
